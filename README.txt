@@ -11,25 +11,28 @@ För att definiera strukturen för varje todo har ett interface Todo skapats. De
 task: En sträng som representerar själva uppgiften.
 completed: En boolean som indikerar om uppgiften är klar eller inte.
 priority: En heltalsvariabel från 1 till 3 för att ange prioritet på uppgiften.
-Klass: TodoList
 
+
+*** Klass: TodoList
 En klass TodoList har skapats för att hantera listan av todos och dess operationer. Den innehåller följande metoder:
 
-constructor(): Konstruktorn initialiserar en tom array för att lagra todos och laddar tidigare sparade todos från LocalStorage om det finns några.
-addTodo(task: string, priority: number): boolean: Metoden för att lägga till nya todos i listan. Den tar emot uppgiftens namn och prioritet och lägger till en ny todo i listan om de är giltiga.
-markTodoCompleted(todoIndex: number): void: Metoden för att markera en todo som klar. Den tar emot ett index för den todo som ska markeras som klar och ändrar dess completed-egenskap till true.
-deleteTodo(todoIndex: number): void: Metoden för att ta bort en todo från listan. Den tar emot ett index för den todo som ska tas bort och tar bort den från listan.
-getTodos(): Todo[]: Metoden för att hämta hela listan av todos.
-saveToLocalStorage(): void: Metoden för att spara todos till LocalStorage som en sträng.
-loadFromLocalStorage(): void: Metoden för att hämta todos från LocalStorage och ladda dem till listan.
-Frontend-gränssnitt
+***constructor(): Konstruktorn initialiserar en tom array för att lagra todos och laddar tidigare sparade todos från LocalStorage om det finns några.
+***addTodo(task: string, priority: number): boolean: Metoden för att lägga till nya todos i listan. Den tar emot uppgiftens namn och prioritet och lägger till en ny todo i listan om de är giltiga.
+***markTodoCompleted(todoIndex: number): void: Metoden för att markera en todo som klar. Den tar emot ett index för den todo som ska markeras som klar och ändrar dess completed-egenskap till true.
+***deleteTodo(todoIndex: number): void: Metoden för att ta bort en todo från listan. Den tar emot ett index för den todo som ska tas bort och tar bort den från listan.
+***getTodos(): Todo[]: Metoden för att hämta hela listan av todos.
+***saveToLocalStorage(): void: Metoden för att spara todos till LocalStorage som en sträng.
+***loadFromLocalStorage(): void: Metoden för att hämta todos från LocalStorage och ladda dem till listan.
+
+***Frontend-gränssnitt***
 Gränssnittet består av HTML-element och JavaScript-kod för att rendera todos på webbsidan och hantera användarens interaktioner.
 
-HTML-element:
+***HTML-element:
 Ett formulär för att lägga till nya todos med fält för att ange uppgiftens namn och prioritet.
 En lista (ul) med ID todo-list där alla todos kommer att visas.
 Knappar för att markera todos som klara och ta bort dem från listan.
-JavaScript-kod:
+
+***JavaScript-kod:
 Eventlyssnare för formuläret för att lägga till nya todos.
 Eventlyssnare för knappen för att markera todos som klara.
 Eventlyssnare för knapparna för att ta bort todos från listan.
