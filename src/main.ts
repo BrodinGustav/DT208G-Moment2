@@ -100,7 +100,7 @@ class TodoList {
     
     // Lägg till en knapp för att markera todo som klar
       const markCompletedButton = document.createElement('button');
-      markCompletedButton.textContent = 'Completed';
+      markCompletedButton.textContent = 'Klar';
       markCompletedButton.addEventListener('click', (event) => {                // Markera todo som klar vid klick
         todoListManager.markTodoCompleted(index);                               
         renderTodos();                                                          // Uppdatera visningen av todos efter ändring
@@ -108,7 +108,7 @@ class TodoList {
   
        //Lägg till knapp för att radera todo
        const deleteToDoButton = document.createElement('button');
-       deleteToDoButton.textContent = 'Delete';
+       deleteToDoButton.textContent = 'Radera';
        deleteToDoButton.addEventListener('click', (event) => {                  //Radera todo vid klick
          todoListManager.deleteTodo(index);
          renderTodos();
@@ -121,10 +121,29 @@ class TodoList {
      });
    }
 
+ // Lyssnare för formuläret för att lägga till nya todos
+ todoForm.addEventListener('submit', (event) => {
+    event.preventDefault();                                                 // Förhindra standardbeteendet för formuläret
+    const task = todoTaskInput.value;                                       //Hämta input från formuläret
+    const priority = parseInt(todoPriorityInput.value);                     //Hämta prioritet från formuläret
+    
+    // Om todo har lagts till, rendera om listan av todos
+    if (todoListManager.addTodo(task, priority)) {
+      renderTodos(); 
+      todoTaskInput.value = '';                                             
+      todoPriorityInput.value = ''; 
+  
+    } else {
+      alert('Invalid input. Var god välj prioritet mellan 1-3.'); 
+    }
+  });
+  
 
+  // Lyssnare för knappen för att markera todos som klara
+  markCompletedButton.addEventListener('click', () => {
+    renderTodos();                                                          // Rendera om listan av todos när knappen klickas
+  });
    
 renderTodos(); // Rendera listan av todos när sidan laddas
   
-}
-
 });

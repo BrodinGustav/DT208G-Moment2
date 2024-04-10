@@ -639,12 +639,58 @@ document.addEventListener("DOMContentLoaded", function() {
     const todoListManager = new TodoList();
     todoListManager.loadFromLocalStorage(); // Ladda todos från localStorage
     renderTodos(); // Anropa renderTodos() direkt efter att todos har laddats
+    // Hämta referenser till HTML-elementen från DOM
+    const todoForm = document.getElementById("todo-form");
+    const todoTaskInput = document.getElementById("todo-task");
+    const todoPriorityInput = document.getElementById("todo-priority");
+    const todoList = document.getElementById("todo-list");
+    const markCompletedButton = document.getElementById("mark-completed");
     // Funktion för att rendera todos på webbsidan
     function renderTodos() {
         const todoList = document.getElementById("todo-list"); // Säkerställer att todoList är tillgängligt när renderTodos() anropas
         todoList.innerHTML = ""; // Rensa listan för att undvika dubbletter
-        renderTodos(); // Rendera listan av todos när sidan laddas
+        // Iterera över varje todo och skapa HTML-element
+        todoListManager.getTodos().forEach((todo, index)=>{
+            const listItem = document.createElement("li"); // Skapa ett <li>-element
+            listItem.textContent = `${todo.task} - Priority: ${todo.priority}`; // Text för todo
+            if (todo.completed) listItem.classList.add("completed"); // Lägg till CSS-klassen om todo är klar
+            // Lägg till en knapp för att markera todo som klar
+            const markCompletedButton = document.createElement("button");
+            markCompletedButton.textContent = "Klar";
+            markCompletedButton.addEventListener("click", (event)=>{
+                todoListManager.markTodoCompleted(index);
+                renderTodos(); // Uppdatera visningen av todos efter ändring
+            });
+            //Lägg till knapp för att radera todo
+            const deleteToDoButton = document.createElement("button");
+            deleteToDoButton.textContent = "Radera";
+            deleteToDoButton.addEventListener("click", (event)=>{
+                todoListManager.deleteTodo(index);
+                renderTodos();
+            });
+            // Lägg till knappar i todo-elementet och <li>-element i listan
+            listItem.appendChild(markCompletedButton);
+            listItem.appendChild(deleteToDoButton);
+            todoList.appendChild(listItem);
+        });
     }
+    // Lyssnare för formuläret för att lägga till nya todos
+    todoForm.addEventListener("submit", (event)=>{
+        event.preventDefault(); // Förhindra standardbeteendet för formuläret
+        const task = todoTaskInput.value; //Hämta input från formuläret
+        const priority = parseInt(todoPriorityInput.value); //Hämta prioritet från formuläret
+        // Om todo har lagts till, rendera om listan av todos
+        if (todoListManager.addTodo(task, priority)) {
+            renderTodos();
+            todoTaskInput.value = "";
+            todoPriorityInput.value = "";
+        } else alert("Invalid input. Var god v\xe4lj prioritet mellan 1-3.");
+    });
+    // Lyssnare för knappen för att markera todos som klara
+    markCompletedButton.addEventListener("click", ()=>{
+        renderTodos(); // Rendera om listan av todos när knappen klickas
+    });
+    renderTodos(); // Rendera listan av todos när sidan laddas
 });
 
 },{}]},["dZI1r","jeorp"], "jeorp", "parcelRequireac4b")
