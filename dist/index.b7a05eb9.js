@@ -634,6 +634,18 @@ class TodoList {
         if (storedTodos) this.todos = JSON.parse(storedTodos); // Om det finns lagrade todos, ladda dem till listan
     }
 }
+document.addEventListener("DOMContentLoaded", function() {
+    // Skapa en instans av TodoList-klassen för att hantera todos
+    const todoListManager = new TodoList();
+    todoListManager.loadFromLocalStorage(); // Ladda todos från localStorage
+    renderTodos(); // Anropa renderTodos() direkt efter att todos har laddats
+    // Funktion för att rendera todos på webbsidan
+    function renderTodos() {
+        const todoList = document.getElementById("todo-list"); // Säkerställer att todoList är tillgängligt när renderTodos() anropas
+        todoList.innerHTML = ""; // Rensa listan för att undvika dubbletter
+        renderTodos(); // Rendera listan av todos när sidan laddas
+    }
+});
 
 },{}]},["dZI1r","jeorp"], "jeorp", "parcelRequireac4b")
 

@@ -71,4 +71,19 @@ class TodoList {
     }
   }
   
+  document.addEventListener("DOMContentLoaded", function() {
+
+// Skapa en instans av TodoList-klassen för att hantera todos
+  const todoListManager = new TodoList();
+  todoListManager.loadFromLocalStorage(); // Ladda todos från localStorage
+  renderTodos(); // Anropa renderTodos() direkt efter att todos har laddats
+
+  // Funktion för att rendera todos på webbsidan
+  function renderTodos(): void {
+    const todoList = document.getElementById('todo-list') as HTMLUListElement;  // Säkerställer att todoList är tillgängligt när renderTodos() anropas
+    todoList.innerHTML = ''; // Rensa listan för att undvika dubbletter
   
+  renderTodos(); // Rendera listan av todos när sidan laddas
+  
+}
+});
