@@ -643,7 +643,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const todoForm = document.getElementById("todo-form");
     const todoTaskInput = document.getElementById("todo-task");
     const todoPriorityInput = document.getElementById("todo-priority");
-    const markCompletedButton = document.getElementById("mark-completed");
+    const markCompletedButtonElement = document.getElementById("mark-completed");
     // Funktion för att rendera todos på webbsidan
     function renderTodos() {
         const todoList = document.getElementById("todo-list"); // Säkerställer att todoList är tillgängligt när renderTodos() anropas
@@ -686,7 +686,7 @@ document.addEventListener("DOMContentLoaded", function() {
         } else alert("Felaktig input. Var god v\xe4lj prioritet mellan 1-3.");
     });
     // Lyssnare för knappen för att markera todos som klara
-    markCompletedButton.addEventListener("click", ()=>{
+    markCompletedButtonElement.addEventListener("click", ()=>{
         renderTodos(); // Rendera om listan av todos när knappen klickas
     });
     renderTodos(); // Rendera listan av todos när sidan laddas

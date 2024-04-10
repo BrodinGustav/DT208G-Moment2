@@ -82,7 +82,7 @@ constructor() {
  const todoForm = document.getElementById('todo-form') as HTMLFormElement;
  const todoTaskInput = document.getElementById('todo-task') as HTMLInputElement;
  const todoPriorityInput = document.getElementById('todo-priority') as HTMLInputElement;
- const markCompletedButton = document.getElementById('mark-completed') as HTMLButtonElement;
+ const markCompletedButtonElement = document.getElementById('mark-completed') as HTMLButtonElement;
 
   // Funktion för att rendera todos på webbsidan
   function renderTodos(): void {
@@ -139,7 +139,7 @@ constructor() {
   
 
   // Lyssnare för knappen för att markera todos som klara
-  markCompletedButton.addEventListener('click', () => {
+  markCompletedButtonElement.addEventListener('click', () => {
     renderTodos();                                                          // Rendera om listan av todos när knappen klickas
   });
    
