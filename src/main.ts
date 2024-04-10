@@ -78,12 +78,53 @@ class TodoList {
   todoListManager.loadFromLocalStorage(); // Ladda todos från localStorage
   renderTodos(); // Anropa renderTodos() direkt efter att todos har laddats
 
+ // Hämta referenser till HTML-elementen från DOM
+ const todoForm = document.getElementById('todo-form') as HTMLFormElement;
+ const todoTaskInput = document.getElementById('todo-task') as HTMLInputElement;
+ const todoPriorityInput = document.getElementById('todo-priority') as HTMLInputElement;
+ const todoList = document.getElementById('todo-list') as HTMLUListElement;
+ const markCompletedButton = document.getElementById('mark-completed') as HTMLButtonElement;
+
   // Funktion för att rendera todos på webbsidan
   function renderTodos(): void {
     const todoList = document.getElementById('todo-list') as HTMLUListElement;  // Säkerställer att todoList är tillgängligt när renderTodos() anropas
     todoList.innerHTML = ''; // Rensa listan för att undvika dubbletter
   
-  renderTodos(); // Rendera listan av todos när sidan laddas
+    // Iterera över varje todo och skapa HTML-element
+    todoListManager.getTodos().forEach((todo, index) => {
+        const listItem = document.createElement('li');                          // Skapa ett <li>-element
+        listItem.textContent = `${todo.task} - Priority: ${todo.priority}`;     // Text för todo
+        if (todo.completed) {
+          listItem.classList.add('completed');                                  // Lägg till CSS-klassen om todo är klar
+        }
+    
+    // Lägg till en knapp för att markera todo som klar
+      const markCompletedButton = document.createElement('button');
+      markCompletedButton.textContent = 'Completed';
+      markCompletedButton.addEventListener('click', (event) => {                // Markera todo som klar vid klick
+        todoListManager.markTodoCompleted(index);                               
+        renderTodos();                                                          // Uppdatera visningen av todos efter ändring
+      });
+  
+       //Lägg till knapp för att radera todo
+       const deleteToDoButton = document.createElement('button');
+       deleteToDoButton.textContent = 'Delete';
+       deleteToDoButton.addEventListener('click', (event) => {                  //Radera todo vid klick
+         todoListManager.deleteTodo(index);
+         renderTodos();
+       })
+
+       // Lägg till knappar i todo-elementet och <li>-element i listan
+       listItem.appendChild(markCompletedButton);                               
+       listItem.appendChild(deleteToDoButton);
+       todoList.appendChild(listItem); 
+     });
+   }
+
+
+   
+renderTodos(); // Rendera listan av todos när sidan laddas
   
 }
+
 });
