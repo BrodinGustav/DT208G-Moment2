@@ -591,7 +591,6 @@ class TodoList {
     constructor(){
         this.todos = [];
         this.loadFromLocalStorage();
-        this.nextId = 1; //Börjar med ID 1
     }
     // Metod för att lägga till nya todos med prioritet
     addTodo(task, priority) {
@@ -599,39 +598,24 @@ class TodoList {
         if (task.trim() === "" || isNaN(priority) || priority < 1 || priority > 3) return false; // Returnera false om ogiltiga värden har matats in
         // Skapa en ny todo och lägg till i listan
         const newTodo = {
-            id: this.nextId,
             task: task,
             completed: false,
             priority: priority
         };
-        // Öka nästa tilldelade ID för nästa todo
-        this.nextId++;
         this.todos.push(newTodo); //Todo läggs i array
         this.saveToLocalStorage(); // Spara ändringar till LocalStorage
         return true; // Returnera true för att indikera att todo har lagts till
     }
     // Metod för att markera en todo som klar
-    markTodoCompleted(todoId) {
-        let todoIndex = -1; // Initialisera med ett ogiltigt index
-        for(let i = 0; i < this.todos.length; i++)if (this.todos[i].id === todoId) {
-            todoIndex = i;
-            break;
-        }
-        // Kontrollera om ett giltigt index hittades
-        if (todoIndex !== -1) {
-            this.todos[todoIndex].completed = true; // Markera todo som klar
-            this.saveToLocalStorage();
+    markTodoCompleted(todoIndex) {
+        if (todoIndex >= 0 && todoIndex < this.todos.length) {
+            this.todos[todoIndex].completed = true; // Markera todo som klar 
+            this.saveToLocalStorage(); // Spara ändringar till LocalStorage
         }
     }
     // Metod för att radera en todo
-    deleteTodo(todoId) {
-        let todoIndex = -1;
-        for(let i = 0; i < this.todos.length; i++)if (this.todos[i].id === todoId) {
-            todoIndex = i;
-            break;
-        }
-        // Kontrollera om ett giltigt index hittades
-        if (todoIndex !== -1) {
+    deleteTodo(todoIndex) {
+        if (todoIndex >= 0 && todoIndex < this.todos.length) {
             this.todos.splice(todoIndex, 1); // Radera todo från listan
             this.saveToLocalStorage();
         }
@@ -699,7 +683,7 @@ document.addEventListener("DOMContentLoaded", function() {
             renderTodos();
             todoTaskInput.value = "";
             todoPriorityInput.value = "";
-        } else alert("Invalid input. Var god v\xe4lj prioritet mellan 1-3.");
+        } else alert("Felaktig input. Var god v\xe4lj prioritet mellan 1-3.");
     });
     // Lyssnare för knappen för att markera todos som klara
     markCompletedButton.addEventListener("click", ()=>{
