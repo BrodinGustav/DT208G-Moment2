@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/src/main.ts" type="module"></script>
+    <link rel =" stylesheet" href="/src/style.css">
+</head>
+<body>
+    <h1>Todo List</h1>
+
+  <!-- Formulär för att lägga till nya todos -->
+  <form id="todo-form">
+    <label for="todo-task">Task:</label>
+    <input type="text" id="todo-task" required>
+    <label for="todo-priority">Priority (1-3):</label>
+    <input type="number" id="todo-priority" required>
+    <button type="submit">Add Todo</button>
+  </form>
+
+  <!-- Lista för att visa todos -->
+  <ul id="todo-list"></ul>
+
+</body>
+</html>
