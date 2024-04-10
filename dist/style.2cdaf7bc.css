@@ -14,9 +14,8 @@ body {
 
 button {
   border-radius: 10px;
-  margin-top: 1em;
+  margin-top: .5em;
   margin-bottom: 1em;
-  margin-right: .5em;
   box-shadow: 1px 1px 2px 1px #000;
 }
 
@@ -30,13 +29,11 @@ button:hover {
 }
 
 ul {
+  text-align: left;
   padding: 0;
-  position: relative;
 }
 
-li button {
-  align-items: center;
-  gap: 5em;
-  display: flex;
+ul button {
+  margin-right: 1em;
 }
 /*# sourceMappingURL=style.2cdaf7bc.css.map */

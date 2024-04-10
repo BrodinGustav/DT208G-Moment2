@@ -15,9 +15,9 @@ body{
 button{
     border-radius: 10px;
     box-shadow: 1px 1px 2px 1px black;    
-    margin-top:1em;
+    margin-top:0.5em;
     margin-bottom:1em;
-    margin-right:0.5em;
+
 }
 
 button:hover{
@@ -31,12 +31,11 @@ button:hover{
 
   ul{
     padding:0;
-    position: relative;
+    text-align: left;
+  }
+
+  ul button{
+    margin-right:1em;
   }
   
 
-  li button{
-display: flex;
-align-items: center;
-gap:5em;  
-}
