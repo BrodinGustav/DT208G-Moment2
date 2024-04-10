@@ -82,7 +82,7 @@ constructor() {
  const todoForm = document.getElementById('todo-form') as HTMLFormElement;
  const todoTaskInput = document.getElementById('todo-task') as HTMLInputElement;
  const todoPriorityInput = document.getElementById('todo-priority') as HTMLInputElement;
- const markCompletedButtonElement = document.getElementById('mark-completed') as HTMLButtonElement;
+ 
 
   // Funktion för att rendera todos på webbsidan
   function renderTodos(): void {
@@ -92,7 +92,7 @@ constructor() {
     // Iterera över varje todo och skapa HTML-element
     todoListManager.getTodos().forEach((todo, index) => {
         const listItem = document.createElement('li');                          // Skapa ett <li>-element
-        listItem.textContent = `${todo.task} - Priority: ${todo.priority}`;     // Text för todo
+        listItem.textContent = `${todo.task} - Prioritering: ${todo.priority}`;     // Text för todo
         if (todo.completed) {
           listItem.classList.add('completed');                                  // Lägg till CSS-klassen om todo är klar
         }
@@ -114,8 +114,8 @@ constructor() {
        })
 
        // Lägg till knappar i todo-elementet och <li>-element i listan
-       listItem.appendChild(markCompletedButton);  
-       listItem.appendChild(deleteToDoButton);
+       todoList.appendChild(markCompletedButton);  
+       todoList.appendChild(deleteToDoButton);
        todoList.appendChild(listItem); 
      });
    }
@@ -136,13 +136,7 @@ constructor() {
       alert('Felaktig input. Var god välj prioritet mellan 1-3.'); 
     }
   });
-  
-
-  // Lyssnare för knappen för att markera todos som klara
-  markCompletedButtonElement.addEventListener('click', () => {
-    renderTodos();                                                          // Rendera om listan av todos när knappen klickas
-  });
-   
+     
 renderTodos(); // Rendera listan av todos när sidan laddas
   
 });
