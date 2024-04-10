@@ -4,6 +4,7 @@ var TodoList = /** @class */ (function () {
     function TodoList() {
         this.todos = [];
         this.loadFromLocalStorage();
+        this.nextId = 1; //Börjar med ID 1
     }
     // Metod för att lägga till nya todos med prioritet
     TodoList.prototype.addTodo = function (task, priority) {
@@ -13,24 +14,43 @@ var TodoList = /** @class */ (function () {
         }
         // Skapa en ny todo och lägg till i listan
         var newTodo = {
+            id: this.nextId,
             task: task,
             completed: false,
             priority: priority
         };
+        // Öka nästa tilldelade ID för nästa todo
+        this.nextId++;
         this.todos.push(newTodo); //Todo läggs i array
         this.saveToLocalStorage(); // Spara ändringar till LocalStorage
         return true; // Returnera true för att indikera att todo har lagts till
     };
     // Metod för att markera en todo som klar
-    TodoList.prototype.markTodoCompleted = function (todoIndex) {
-        if (todoIndex >= 0 && todoIndex < this.todos.length) { //Kontrollerar att Index är större eller lika med noll och att index är mindre än längden på arrayen.
+    TodoList.prototype.markTodoCompleted = function (todoId) {
+        var todoIndex = -1; // Initialisera med ett ogiltigt index
+        for (var i = 0; i < this.todos.length; i++) { //Loopar igenom this.todos-array efter specifikt ID
+            if (this.todos[i].id === todoId) {
+                todoIndex = i;
+                break;
+            }
+        }
+        // Kontrollera om ett giltigt index hittades
+        if (todoIndex !== -1) {
             this.todos[todoIndex].completed = true; // Markera todo som klar
-            this.saveToLocalStorage(); // Spara ändringar till LocalStorage
+            this.saveToLocalStorage();
         }
     };
     // Metod för att radera en todo
-    TodoList.prototype.deleteTodo = function (todoIndex) {
-        if (todoIndex >= 0 && todoIndex < this.todos.length) {
+    TodoList.prototype.deleteTodo = function (todoId) {
+        var todoIndex = -1;
+        for (var i = 0; i < this.todos.length; i++) {
+            if (this.todos[i].id === todoId) {
+                todoIndex = i;
+                break;
+            }
+        }
+        // Kontrollera om ett giltigt index hittades
+        if (todoIndex !== -1) {
             this.todos.splice(todoIndex, 1); // Radera todo från listan
             this.saveToLocalStorage();
         }
@@ -61,7 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
     var todoForm = document.getElementById('todo-form');
     var todoTaskInput = document.getElementById('todo-task');
     var todoPriorityInput = document.getElementById('todo-priority');
-    var todoList = document.getElementById('todo-list');
     var markCompletedButton = document.getElementById('mark-completed');
     // Funktion för att rendera todos på webbsidan
     function renderTodos() {
@@ -76,15 +95,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             // Lägg till en knapp för att markera todo som klar
             var markCompletedButton = document.createElement('button');
-            markCompletedButton.textContent = 'Completed';
-            markCompletedButton.addEventListener('click', function (event) {
+            markCompletedButton.textContent = 'Klar';
+            markCompletedButton.addEventListener('click', function () {
                 todoListManager.markTodoCompleted(index);
                 renderTodos(); // Uppdatera visningen av todos efter ändring
             });
             //Lägg till knapp för att radera todo
             var deleteToDoButton = document.createElement('button');
-            deleteToDoButton.textContent = 'Delete';
-            deleteToDoButton.addEventListener('click', function (event) {
+            deleteToDoButton.textContent = 'Radera';
+            deleteToDoButton.addEventListener('click', function () {
                 todoListManager.deleteTodo(index);
                 renderTodos();
             });

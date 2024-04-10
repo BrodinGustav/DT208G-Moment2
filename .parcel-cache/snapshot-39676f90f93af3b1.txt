@@ -20,7 +20,7 @@
 71C:\Utbildning\DT208G\Moment2\node_modules\@parcel\profiler\package.json133572024434790647 0
 59C:\Utbildning\DT208G\Moment2\node_modules\svgo\lib\style.js133572024437937460 0
 93C:\Utbildning\DT208G\Moment2\node_modules\lmdb\dependencies\lmdb\libraries\liblmdb\mdb_copy.c133572024436953386 0
-33C:\Utbildning\DT208G\Moment2\dist133572045017643746 1
+33C:\Utbildning\DT208G\Moment2\dist133572088271686855 1
 73C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\regions\AX.js133572024437285344 0
 77C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\features\http3.js133572024443873125 0
 79C:\Utbildning\DT208G\Moment2\node_modules\posthtml\node_modules\posthtml-parser133572024433123425 1
@@ -63,7 +63,7 @@
 58C:\Utbildning\DT208G\Moment2\node_modules\is-json\index.js133572024432621278 0
 73C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\regions\TM.js133572024447282626 0
 63C:\Utbildning\DT208G\Moment2\node_modules\@parcel\cache\LICENSE133572024430794604 0
-40C:\Utbildning\DT208G\Moment2\src\main.js133572044034830240 0
+40C:\Utbildning\DT208G\Moment2\src\main.js133572088274463235 0
 88C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\features\css-text-spacing.js133572024441610337 0
 65C:\Utbildning\DT208G\Moment2\node_modules\js-yaml\lib\type\int.js133572024434790647 0
 84C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\features\console-time.js133572024439681548 0
@@ -79,7 +79,7 @@
 46C:\Utbildning\DT208G\Moment2\package-lock.json133572024454936501 0
 69C:\Utbildning\DT208G\Moment2\node_modules\@parcel\workers\lib\process133572024436507769 1
 73C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\regions\CG.js133572024439286421 0
-43C:\Utbildning\DT208G\Moment2\src\index.html133572044981936321 0
+43C:\Utbildning\DT208G\Moment2\src\index.html133572074844915859 0
 73C:\Utbildning\DT208G\Moment2\node_modules\lmdb\util\set-optional-deps.cjs133572024438949642 0
 92C:\Utbildning\DT208G\Moment2\node_modules\@parcel\transformer-babel\src\remapAstLocations.js133572024435145127 0
 82C:\Utbildning\DT208G\Moment2\node_modules\css-tree\lib\syntax\node\UnicodeRange.js133572024439785499 0
@@ -97,7 +97,7 @@
 81C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\features\dragndrop.js133572024442300549 0
 73C:\Utbildning\DT208G\Moment2\node_modules\@parcel\core\lib\projectPath.js133572024439785499 0
 54C:\Utbildning\DT208G\Moment2\node_modules\mdn-data\api133572024434790647 1
-40C:\Utbildning\DT208G\Moment2\src\main.ts133572045016373067 0
+40C:\Utbildning\DT208G\Moment2\src\main.ts133572088271374365 0
 59C:\Utbildning\DT208G\Moment2\node_modules\@msgpackr-extract133572024454115427 1
 66C:\Utbildning\DT208G\Moment2\node_modules\semver\functions\sort.js133572024436953386 0
 51C:\Utbildning\DT208G\Moment2\node_modules\is-number133572024432126152 1
@@ -192,7 +192,7 @@
 49C:\Utbildning\DT208G\Moment2\node_modules\globals133572024433123425 1
 88C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\features\devicepixelratio.js133572024441949321 0
 80C:\Utbildning\DT208G\Moment2\node_modules\dom-serializer\lib\esm\foreignNames.js133572024431618198 0
-52C:\Utbildning\DT208G\Moment2\dist\style.2cdaf7bc.css133572044004516076 0
+52C:\Utbildning\DT208G\Moment2\dist\style.2cdaf7bc.css133572072343228996 0
 64C:\Utbildning\DT208G\Moment2\node_modules\react-refresh\babel.js133572024431296394 0
 68C:\Utbildning\DT208G\Moment2\node_modules\svgo\plugins\mergePaths.js133572024436527681 0
 64C:\Utbildning\DT208G\Moment2\node_modules\@parcel\optimizer-svgo133572024432290048 1
@@ -3344,7 +3344,7 @@
 76C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\features\woff.js133572024448110289 0
 87C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\features\x-doc-messaging.js133572024448294471 0
 77C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\features\xhtml.js133572024448294471 0
-44C:\Utbildning\DT208G\Moment2\dist\index.html133572044983734410 0
+44C:\Utbildning\DT208G\Moment2\dist\index.html133572074845071452 0
 86C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\features\xml-serializer.js133572024448294471 0
 76C:\Utbildning\DT208G\Moment2\node_modules\caniuse-lite\data\features\zstd.js133572024448294471 0
 60C:\Utbildning\DT208G\Moment2\node_modules\callsites\index.js133572024431789755 0
@@ -4373,6 +4373,6 @@
 60C:\Utbildning\DT208G\Moment2\node_modules\.bin\uglifycss.ps1133572024449943018 0
 73C:\Utbildning\DT208G\Moment2\node_modules\.bin\update-browserslist-db.cmd133572024449943018 0
 73C:\Utbildning\DT208G\Moment2\node_modules\.bin\update-browserslist-db.ps1133572024449943018 0
-56C:\Utbildning\DT208G\Moment2\dist\style.2cdaf7bc.css.map133572044004536094 0
-51C:\Utbildning\DT208G\Moment2\dist\index.b7a05eb9.js133572045017487465 0
-55C:\Utbildning\DT208G\Moment2\dist\index.b7a05eb9.js.map133572045017487465 0
+51C:\Utbildning\DT208G\Moment2\dist\index.b7a05eb9.js133572088271686855 0
+55C:\Utbildning\DT208G\Moment2\dist\index.b7a05eb9.js.map133572088271686855 0
+56C:\Utbildning\DT208G\Moment2\dist\style.2cdaf7bc.css.map133572072343228996 0
